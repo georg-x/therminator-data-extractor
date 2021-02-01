@@ -1,0 +1,100 @@
+1 DATE
+2 TIME
+3 KT
+4 RGT
+5 Luftzahl
+6 Statuszeile
+7 Zusatzstatuszeile
+8 Rücklauftemperatur
+9 RLA-Pumpe
+10 Temperatur X35
+11 AT
+12 LDZ_IST[]
+13 LDZ_ZIEL[]
+14 LDZ_SOLL[]
+15 LDZ_Ausgang
+16 SLK-LZ
+17 SGA Einschubistlz
+18 Istposition Saugsondenumschalt.
+19 Einschubtemperatur
+20 Iststrom Einschub/WMT
+21 Iststrom Einschub HG
+22 Iststrom Austragung HG
+23 Iststrom Austragung 2 HG
+24 Schaltzustand Sensor HG
+25 Rüttler_Status
+26 Rüttler_RGT_Merker
+27 Rüttler_RGT_Abfall
+28 Rüttler_Impulse_Zündphase
+29 Rüttler_Impulse_Betrieb
+30 Einschub_Impuls_LDZ
+31 Einschübe
+32 Sondereinschübe_LZ
+33 Sondereinschübe_Start
+34 PTO 1
+35 PTU 1
+36 Pufferpumpe 1
+37 TWS Temperatur 1
+38 TWS-Pumpe 1
+39 RT 1
+40 VLT 1
+41 VLT-Soll 1
+42 HK-Pumpe 1
+43 RT 2
+44 VLT 2
+45 VLT-Soll 2
+46 HK-Pumpe 2
+47 Kollektortemp
+48 Speichertemperatur unten Regelung
+49 Speichertemperatur 1 Solarmodul
+50 Speichertemperatur 2 Solarmodul
+51 Solarpumpenausgang
+52 Solarstatus
+53 Solarstatuszeile
+54 WMZ Durchfluss l/h
+55 WMZ VLT
+56 WMZ RLT
+57 WMZ aktuelle Leistung
+58 RT 3
+59 VLT 3
+60 VLT-Soll 3
+61 HK-Pumpe 3
+62 RT 4
+63 VLT 4
+64 VLT-Soll 4
+65 HK-Pumpe 4
+66 RT 5
+67 VLT 5
+68 VLT-Soll 5
+69 HK-Pumpe 5
+70 RT 6
+71 VLT 6
+72 VLT-Soll 6
+73 HK-Pumpe 6
+74 PTO 2
+75 PTU 2
+76 Pufferpumpe 2
+77 PTO 3
+78 PTU 3
+79 Pufferpumpe 3
+80 TWS Temperatur 2
+81 TWS-Pumpe 2
+82 TWS Temperatur 3
+83 TWS-Pumpe 3
+84 Heiz_Strom_LBS
+85 Heiz_Spannung_LBS
+86 Heiz_PWM_LBS
+87 Offset_LBS
+88 Kommunikationszaehler_Leistungsteil
+89 Leistungsteil_Fehler
+90 HG_Modul_Fehler
+91 HK_1_Modul_Fehler
+92 HK_2_Modul_Fehler
+93 HK_3_Modul_Fehler
+94 DFBM_1_Fehler
+95 DFBM_2_Fehler
+96 DFBM_3_Fehler
+97 SOLAR_Modul_Fehler
+98 FWM_1_Fehler
+99 SSUE_Fehler
+100 DIFF_1_Modul_Fehler
