@@ -1,0 +1,13 @@
+#/etc/systemd/system/initgadget.service
+# Originalquelle: https://ct.de/y12n
+# c’t 2020, Heft 10, S.136ff, Voll aufgebohrt, USB-C-Anschluss des Raspberry Pi 4 ausnutzen
+[Unit]
+Description=Raspi 4 USB Gadget
+DefaultDependencies=yes
+
+[Service]
+Type=simple
+ExecStart=/usr/local/sbin/initgadget
+
+[Install]
+WantedBy=local-fs.target

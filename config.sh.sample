@@ -1,2 +1,4 @@
-APIKEYTHINGSPEAK="topsecret"
-APIKEYGENERIC="alsotopsecret"
+thingspeakApiKey="topsecretApiKey"
+thingspeakUrl="https://api.thingspeak.com/update"
+genericApiKey="topsecretApiKey"
+genericUrl="https://path.to.your.api/file.php"

@@ -1,0 +1,32 @@
+#!/bin/bash
+# /usr/local/sbin/initgadget
+# Originalquelle: https://ct.de/y12n
+# c’t 2020, Heft 10, S.136ff, Voll aufgebohrt, USB-C-Anschluss des Raspberry Pi 4 ausnutzen
+losetup -o 65536 /dev/loop0 /media/usbdisk.img
+cd /sys/kernel/config/usb_gadget/
+mkdir -p pi4
+cd pi4
+echo 0x1d6b > idVendor
+echo 0x0104 > idProduct
+echo 0x0100 > bcdDevice
+echo 0x0200 > bcdUSB
+echo 0xEF > bDeviceClass
+echo 0x02 > bDeviceSubClass
+echo 0x01 > bDeviceProtocol
+mkdir -p strings/0x409
+cat /sys/firmware/devicetree/base/serial-number > strings/0x409/serialnumber
+echo "Raspberry Pi Foundation" > strings/0x409/manufacturer
+echo "Raspberry Pi 4" > strings/0x409/product
+mkdir -p configs/c.1/strings/0x409
+echo 250 > configs/c.1/MaxPower
+echo "Config 1: USB Gadget" > configs/c.1/strings/0x409/configuration
+mkdir -p functions/mass_storage.usb0
+echo 1 > functions/mass_storage.usb0/stall
+echo 0 > functions/mass_storage.usb0/lun.0/removable
+echo 0 > functions/mass_storage.usb0/lun.0/cdrom
+echo 0 > functions/mass_storage.usb0/lun.0/ro
+echo 0 > functions/mass_storage.usb0/lun.0/nofua
+echo /media/usbdisk.img > functions/mass_storage.usb0/lun.0/file
+ln -s functions/mass_storage.usb0 configs/c.1/
+udevadm settle -t 5 || :
+ls /sys/class/udc > UDC
