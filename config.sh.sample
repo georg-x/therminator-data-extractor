@@ -1,4 +1,5 @@
-thingspeakApiKey="topsecretApiKey"
 thingspeakUrl="https://api.thingspeak.com/update"
+thingspeakApiKey="topsecretApiKey"
+thingspeakApiKey2="foobar"
 genericApiKey="topsecretApiKey"
 genericUrl="https://path.to.your.api/file.php"
