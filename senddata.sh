@@ -1,4 +1,16 @@
 #!/bin/bash
+#/ Usage: senddata.sh reads config.sh for configuration of API Path & API Key
+#/ sends to generic api and/or thingspeak.com
+#/ currently no parameters or options
+usage() {
+  grep '^#/' "$0" | cut -c4-
+  exit 0
+}
+expr "$*" : ".*--help" > /dev/null && usage
+
+if [ "$#" -ne 0 ]; then
+  usage
+fi
 
 # losetup ist nötig, damit das (neu) mounten einfacher wird
 # Der Befehl ist nur ein Mal nötig zur initalisierung.
