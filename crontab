@@ -1,1 +1,2 @@
-5,15,25,35,45,55 * * * *        /usr/local/sbin/senddata.sh
+#9,19,29,39,49,59 * * * *       /usr/local/sbin/senddata.sh
+* * * * *       /usr/local/sbin/senddata.sh
