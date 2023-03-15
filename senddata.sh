@@ -61,7 +61,7 @@ if [[ $(f_field_nr $LINE 20) -gt 5 ]] || [[ $(date +%M)%5 -eq 0 ]]; then
 
   #/usr/bin/curl "${thingspeakUrl}?api_key=${thingspeakApiKey}&filed1=$(f_field_nr $LINE 3)&field2=$(f_field_nr $LINE 19)"
 else
-  echo "wir schreiben nix"
+  echo "Wir schreiben nix, Timestamp letzte Zeile aus dem Image $(f_field_nr $LINE 1) $(f_field_nr $LINE 2)"
 fi
 
 umount /mnt
