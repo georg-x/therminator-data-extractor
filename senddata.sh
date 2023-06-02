@@ -39,6 +39,9 @@ f_field_nr () {
 # Logfile mit Datum
 FILENAME="/mnt/Logfile_$(/bin/date +%y%m%d).csv"
 
+# Fsck mit automatischer Reparatur durchführen
+/usr/sbin/fsck.fat -a /dev/loop0
+
 # Mount am Pi wird nur read only durchgeführt
 /bin/mount -o ro /dev/loop0  /mnt
 
