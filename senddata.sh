@@ -52,6 +52,41 @@ LINE=$(/usr/bin/tail $FILENAME -n2 | /usr/bin/head -n 1 | /bin/sed s/,/./g )
 # Laden der API Keys, siehe config.sh.sample
 source /usr/local/sbin/config.sh
 
+# Die Idee ist eine Ausgabe, wie alt der Timestamp ist
+####################
+raw_date="$(f_field_nr $LINE 1)"
+raw_time="$(f_field_nr $LINE 2)"
+
+# Datum zerlegen
+day=$(echo "$raw_date" | cut -d. -f1)
+month=$(echo "$raw_date" | cut -d. -f2)
+year=$(echo "$raw_date" | cut -d. -f3)
+
+# auf 4-stellig erweitern (20xx)
+year="20$year"
+
+timestamp="$year-$month-$day $raw_time"
+
+# in Unix-Zeit umwandeln
+#ts_epoch=$(date -d "$timestamp" +%s 2>/dev/null)
+ts_epoch=$(date -d "$(echo "$timestamp" | sed 's/\./-/g')" +%s)
+
+# aktuelle Zeit
+now_epoch=$(date +%s)
+
+# Differenz in Sekunden
+diff=$((now_epoch - ts_epoch))
+
+# 30 Minuten = 1800 Sekunden
+if [ "$diff" -gt 1800 ]; then
+  echo "Älter als 30 Minuten, ts_epoch=$ts_epoch, now_epoch=$now_epoch, diff=$diff"
+ # Todo: Reboot auslösen wenn es nimma geht
+else
+  echo "Jünger als 30 Minuten, ts_epoch=$ts_epoch, now_epoch=$now_epoch, diff=$diff"
+fi
+####################
+
+
 # Idee: nur alle 5 Minuten schreiben, ausser es tut sich was interessantes mit dem Strom
 if [[ $(f_field_nr $LINE 20) -gt 5 ]] || [[ $(date +%M)%5 -eq 0 ]]; then
   echo "wir schreiben"
@@ -68,4 +103,3 @@ else
 fi
 
 umount /mnt
-
