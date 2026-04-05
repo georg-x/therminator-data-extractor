@@ -80,7 +80,7 @@ diff=$((now_epoch - ts_epoch))
 # 30 Minuten = 1800 Sekunden
 if [ "$diff" -gt 1800 ]; then
   echo "Älter als 30 Minuten, ts_epoch=$ts_epoch, now_epoch=$now_epoch, diff=$diff"
- # Todo: Reboot auslösen wenn es nimma geht
+  /usr/sbin/reboot
 else
   echo "Jünger als 30 Minuten, ts_epoch=$ts_epoch, now_epoch=$now_epoch, diff=$diff"
 fi
