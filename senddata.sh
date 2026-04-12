@@ -70,6 +70,10 @@ timestamp="$year-$month-$day $raw_time"
 # in Unix-Zeit umwandeln
 #ts_epoch=$(date -d "$timestamp" +%s 2>/dev/null)
 ts_epoch=$(date -d "$(echo "$timestamp" | sed 's/\./-/g')" +%s)
+if [ -z "$ts_epoch" ]; then
+  echo "Fehler: Timestamp konnte nicht geparst werden" >&2
+  exit 1
+fi
 
 # aktuelle Zeit
 now_epoch=$(date +%s)
